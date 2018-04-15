@@ -1,0 +1,25 @@
+{
+  "name": "Node-Beginner-Book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "formidable": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tashazun/Node-Beginner-Book.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tashazun/Node-Beginner-Book/issues"
+  },
+  "homepage": "https://github.com/Tashazun/Node-Beginner-Book#readme"
+}
