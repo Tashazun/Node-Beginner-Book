@@ -1,8 +1,8 @@
-const qs = require('querystring');
+
 const fs = require('fs');
 const formidable = require('formidable');
 
-function start(response, postData) {
+function start(response) {
     console.log('Request handler \'start\' was called.');
 
     const body = '<html>' +
