@@ -33,8 +33,9 @@ function upload(response, request) {
         console.log('Parse finished');
         fs.rename(files.upload.path, './tmp/test.png', function(err) { 
             if(err) {
-                fs.unlink('./tmp/test.png');
-                fs.rename(files.upload.path, './tmp/test.png');
+                // fs.unlink('./tmp/test.png');
+                // fs.rename(files.upload.path, './tmp/test.png');
+                console.log(err);
             }
         });
         response.writeHead(200, { 'Content-Type': 'text/html' });
