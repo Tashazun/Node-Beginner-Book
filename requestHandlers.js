@@ -30,21 +30,24 @@ function upload(response, request) {
     const form = new formidable.IncomingForm();
     console.log('About to parse');
     form.parse(request, function(err, fields, files) {
-        if(err) {
-            fs.unlink('/tmp/test.png');
-            fs.rename(files.upload.path, '/tmp/test.png');
-        }
+        console.log('Parse finished');
+        fs.rename(files.upload.path, './tmp/test.png', function(err) { 
+            if(err) {
+                fs.unlink('./tmp/test.png');
+                fs.rename(files.upload.path, './tmp/test.png');
+            }
+        });
+        response.writeHead(200, { 'Content-Type': 'text/html' });
+        response.write("Received image: <br />");
+        response.write("<img src='/show' />");
+        response.end();
     });
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
-    response.write("Received image: <br />");
-    response.write("<img src='/show' />");
-    response.end();
 }
 
 function show(response) {
     console.log('Request handler \'show\' was called.');
     response.writeHead(200, { 'Content-Type': 'image/png' });
-    fs.createReadStream('/tmp/test.png').pipe(response);
+    fs.createReadStream('./tmp/test.png').pipe(response);
 }
 
 exports.start = start;
